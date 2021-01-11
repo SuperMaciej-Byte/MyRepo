@@ -1,0 +1,20 @@
+body { background-color: gray; }
+   	h1 { text-align: center; color: darkblue; text-shadow: 2px 2px #ff0000; }
+   	h2 { color: white; text-shadow: 2px 2px #ff0000; }
+	h3 { text-align: center; color: dark; text-decoration: underline; }
+
+   	a { color: ghostwhite; }
+   	
+   	#conteiner {
+   		margin-left: auto;
+   		margin-right: auto;
+   	}
+   	#tytulStrony {
+	   /*	background-color: greenyellow; */
+	   background-color: whitesmoke;
+   		padding: 2px;
+   	}
+   	#divObliczanie {
+		   font-size: 120%;
+   	}
+

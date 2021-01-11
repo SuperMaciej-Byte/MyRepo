@@ -7,129 +7,12 @@
    <meta name="keywords" content="energia, prad, moc, cena" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <meta name="author" content="SuperMaciej" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsywność Kurwa Jego Mać -->
-   
-   <style type="text/css">
-   	body { background-color: gray; }
-   	h1 { text-align: center; color: darkblue; text-shadow: 2px 2px #ff0000; }
-   	h2 { color: white; text-shadow: 2px 2px #ff0000; }
-   	h3 { text-align: center; color: dark; text-decoration: underline; }
-   	a { color: ghostwhite; }
-   	
-   	#conteiner {
-   		margin-left: auto;
-   		margin-right: auto;
-   	}
-   	#tytulStrony {
-   		background-color: greenyellow;
-   		padding: 2px;
-   	}
-   	#divObliczanie {
-   		font-size: 120%;
-   	}
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsywność Kurwa Jego Mać -->
 
-   </style>
-   
-   <script type="text/javascript">
-   	function energiaMinuty() {
-   		var liczbaPole_1 = document.getElementById("pole_1").value;
-   		var liczbaPole_2 = document.getElementById("pole_2").value;
-   		var liczbaPole_3 = document.getElementById("pole_3").value;
-   		
-   		var mocUrzadzenia_w_Watach = liczbaPole_1.replace(',','.');
-   		var czasPracyUrzadzeniaMinuty = liczbaPole_2.replace(',','.');
-   		var kosztKWh = liczbaPole_3.replace(',','.');
-   		
-   		var zuzycieEnergiiUrzadzeniaWczasie_w_KWh = ((mocUrzadzenia_w_Watach * czasPracyUrzadzeniaMinuty) / 60) / 1000;			
-			var wynikKosztowMinuty = zuzycieEnergiiUrzadzeniaWczasie_w_KWh * kosztKWh;
-   		   		
-   		document.getElementById("wynikMinuty").innerHTML="Koszty pracy urządzenia o mocy " + mocUrzadzenia_w_Watach + "W" + " " + "które pracuje w ciągu " + czasPracyUrzadzeniaMinuty + " " + "Minut" + " " + "wynosi: " + wynikKosztowMinuty + " " + "PLN";
-   	//	window.alert("Koszt pracy urządzenia o mocy= " + mocUrzadzenia_w_Watach + " Wat " + "W czasie " + czasPracyUrzadzeniaMinuty + "minuty" + "wynosi" + wynikKosztow + "Kurwa Mać");
-   		
-   		/*var obliczonePola = Number(pole_1.value) + Number(pole_2.value) + Number(pole_3.value);
-   		document.getElementById("wynik").innerHTML=obliczonePola; 
-   		window.alert("Wynik= " + obliczonePola + " Kurwa Mać"); */
-   	}
-   	
-   	function energiaGodziny() {
-   		var liczbaPole_4 = document.getElementById("pole_4").value;
-   		var liczbaPole_5 = document.getElementById("pole_5").value;
-   		var liczbaPole_6 = document.getElementById("pole_6").value;
-   		
-   		var mocUrzadzenia_w_Watach_Godziny = liczbaPole_4.replace(',','.');
-   		var czasPracyUrzadzeniaGodziny = liczbaPole_5.replace(',','.');
-   		var kosztKWh_Godziny = liczbaPole_6.replace(',','.');
-   		
-    		var zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Godziny = (mocUrzadzenia_w_Watach_Godziny * czasPracyUrzadzeniaGodziny) / 1000;
-    		var wynikKosztow_Godziny = zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Godziny * kosztKWh_Godziny;
-    		
-    			document.getElementById("wynikGodziny").innerHTML="Koszty pracy urządzenia o mocy " + mocUrzadzenia_w_Watach_Godziny + " Wat" + " " + "które pracuje w ciągu " + czasPracyUrzadzeniaGodziny + " " + "Godzin" + " " + "wynosi: " + wynikKosztow_Godziny + " " + "PLN";  
-   	//	window.alert("Koszt pracy urządzenia o mocy= " + mocUrzadzenia_w_Watach + " Wat " + "W czasie " + czasPracyUrzadzeniaMinuty + "minuty" + "wynosi" + wynikKosztow + "Kurwa Mać");
-    
-   	}
-   	
-   	function energiaDni() {
-   		var liczbaPole_7 = document.getElementById("pole_7").value;
-   		var liczbaPole_8 = document.getElementById("pole_8").value;
-   		var liczbaPole_9 = document.getElementById("pole_9").value;
-   		
-   		var moc_Urzadzenia_w_Watach_Dni = liczbaPole_7.replace(',','.');
-   		var czas_Pracy_Urzadzenia_Dni = liczbaPole_8.replace(',','.');
-   		var kosztKWh_Dni = liczbaPole_9.replace(',','.');
-   		
-   		var zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni = ((moc_Urzadzenia_w_Watach_Dni * czas_Pracy_Urzadzenia_Dni) * 24) / 1000;  
-    		var wynikKosztow_Dni = zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni * kosztKWh_Dni;
-    		
-    document.getElementById("wynikDni").innerHTML="Koszt pracy urządzenia o mocy " + moc_Urzadzenia_w_Watach_Dni + " Wat" + " w czasie " + czas_Pracy_Urzadzenia_Dni + " dni" + " wynosi: " + wynikKosztow_Dni + " PLN"
-   	}
-   	
-   	function pradNaMoc400() {
-   		var liczbaPole_10 = document.getElementById("pole_10").value;
-    		var naterzenieAmpery = liczbaPole_10.replace(',','.');
-    		var cosFi = 0.8;
-    		var pierwiastekZtrzech = 0.00173205;
-    		var napiecieVolt = 400;
+   <link rel="stylesheet" href="styles.css">
 
-    		var wynikKiloWaty = (((pierwiastekZtrzech * naterzenieAmpery) * napiecieVolt) * cosFi);
-    		document.getElementById("pradNaMocWynik").innerHTML="Moc urządzenia przy napięciu 400 V i natęrzeniu prądu wynoszącym: " + naterzenieAmpery + "A wynosi: " + wynikKiloWaty + "KW"; 
-   	}
-   	
-   	function mocNaPrad400() {
-   		var liczbaPole_11 = document.getElementById("pole_11").value;
-    		var moc = liczbaPole_11 = liczbaPole_11.replace(',','.'); 
-    		var cosFi = 0.8
-    		var pierwiastekZtrzech = 0.00173205
-    		var napiecieVolt = 400
-    		var podzielnikMocy = (pierwiastekZtrzech * napiecieVolt) * cosFi;
-    		var pradWynik = moc / podzielnikMocy;
-    		
-    		document.getElementById("mocNaPradWynik").innerHTML="Moc urządzenia: " + moc + " KW  Napięcie sieci: " + napiecieVolt + " Volt" + " Natężenie wynosi: " + pradWynik + " A";
-   	}
-   	
-   	function mocNaPrad230() {
-   		var liczbaPole_12 = document.getElementById("pole_12").value;
-    		var mocPradJednofazowy = liczbaPole_12.replace(',','.');
-    		var cosFi = 0.8;
-    		var napiecieVolt = 230;
-    		
-    		var pradWynik = mocPradJednofazowy / napiecieVolt;
-    		
-    		document.getElementById("mocNaPrad230Wynik").innerHTML="Przy napięciu " + napiecieVolt + " V" + " i mocy urządzenia wynoszącej: " + mocPradJednofazowy + " W" + " natężenie prądu wynosi: " + pradWynik + " Amperów"; 
-   	}
-   	
-   	function obliczKondensator() {
-   		var liczbaPole_13 = document.getElementById("pole_13").value;
-   		var moc = liczbaPole_13.replace(',','.');
-   		var liczbaPole_14 = document.getElementById("pole_14").value;
-   		var wspolczunnik = liczbaPole_14.replace(',','.');
-    		var cosFi = 0.8;
-    		
-    		var pojemnosc = (wspolczunnik * moc) * cosFi;
-    
-    		document.getElementById("obliczKondensatorWynik").innerHTML="Pojemność kondensatora wynosi: " + pojemnosc + " uF";
-   	}	
-   </script>
-   
+<script type="text/javascript" language="javascrypt" src="javas.js"></script>
+
 </head>
 <body>
 	<div id="container">
@@ -137,12 +20,12 @@
    		<h1>Kalkulator Energii by SuperMaicej</h1>
    	</div>
    		<h3>---------------- KALKULATOR KOSZTÓW ENERGII -----------------</h3>
-<!-- ----------------------------------------- Czas pracy Minuty Trochę kurwa bez sensu, ale Chuj Tam ----- -->
-  		<div><a>Moc Urządzenia w Watach:____</a>
+<!-- -- Czas pracy Minuty Trochę kurwa bez sensu, ale Chuj Tam ----- -->
+  		<div style="float: left;"><a>Moc Urządzenia w Watach:</a>
    		<input type="text" id="pole_1"/></div>
-   		<div><a>Czas Pracy Urządzenia Minuty:</a>
+   		<div style="float: left;"><a> Pracy Urządzenia Minuty:</a>
    		    <input type="text" id="pole_2"/></div>
-   		<div><a>Koszt KWh:_______________</a>
+   		<div><a> KWh:</a>
    		<input type="text" value="0.62" id="pole_3"/>
    		<input type="submit" value="Oblicz" onclick="energiaMinuty()"/></div>
    	
@@ -150,23 +33,23 @@
    	
 <!-- ----------------- Czas pracy Godziny ------------------------------------------------------------ -->
 	
-   	<div> <a>Moc Urządzenia w Watach:____</a>
+   	<div style="float: left;"> <a>Moc Urządzenia w Watach:</a>
    		<input type="text" id="pole_4"/></div>
-   		<div><a>Czas Pracy Urządzenia Godziny:</a>
+   		<div style="float: left;"><a>Czas Pracy Urządzenia Godz:</a>
    		<input type="text" id="pole_5"/></div>
-   		<div><a>Koszt KWh:_________________</a> 
+   		<div><a>Koszt KWh:</a> 
    		<input type="text" value="0.62" id="pole_6"/>
    		<input type="submit" value="Oblicz" onclick="energiaGodziny()"/></div>
    	
    	<h2><div id="wynikGodziny"></div></h2>
    	
-   </div>
+   </div> <!-- TO JEST CHYBA KONIEC KONTENERA, ALE CHUJ WIE DLACZEGO WŁAŚNIE TUTAJ -->
    
-   <div> <a>Moc Urządzenia w Watach:____</a>
+   <div style="float: left;"><a> Moc Urządzenia w Watach:</a>
    		<input type="text" id="pole_7"/></div>
-   		<div><a>Czas Pracy Urządzenia Dni:___</a>
+   		<div style="float: left;"><a>Czas Pracy Urządzenia Dni:</a>
    		<input type="text" id="pole_8"/></div>
-   		<div><a>Koszt KWh:_______________</a> 
+   		<div><a>Koszt KWh:</a> 
    		<input type="text" value="0.62" id="pole_9"/>
    		<input type="submit" value="Oblicz" onclick="energiaDni()"/></div>
    	
@@ -196,9 +79,9 @@
    	
    	
    	<div id="divObliczanie">---Obliczenie pojemności kondensatora dla zasilania silnika przeznaczonego na 400 V napięciem 230 V ---</div>
-   	<div><a>Podaj moc silnika w KW:</a>
-   	<input type="text" id="pole_13" />
-   	<a>Współczynnik:</a> 
+   	<div style="float: left;"><a>Podaj moc silnika w KW:</a>
+   	<input type="text" id="pole_13" /></div>
+  	<div style="float: left;"><a>Współczynnik:</a>
    	<input type="text" value="70" id="pole_14" />
    	<input type="submit" value="Oblicz" onclick="obliczKondensator()" /></div>
    	
