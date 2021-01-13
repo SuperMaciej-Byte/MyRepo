@@ -57,8 +57,13 @@ function energiaMinuty() {
     		var pierwiastekZtrzech = 0.00173205;
     		var napiecieVolt = 400;
 
-    		var wynikKiloWaty = (((pierwiastekZtrzech * naterzenieAmpery) * napiecieVolt) * cosFi);
-    		document.getElementById("pradNaMocWynik").innerHTML="Moc urządzenia przy napięciu 400 V i natęrzeniu prądu wynoszącym: " + naterzenieAmpery + "A wynosi: " + wynikKiloWaty + "KW"; 
+			if (!isNaN(liczbaPole_10)) {
+				var wynikKiloWaty = (((pierwiastekZtrzech * naterzenieAmpery) * napiecieVolt) * cosFi);
+	    		document.getElementById("pradNaMocWynik").innerHTML="Moc urządzenia przy napięciu 400 V i natęrzeniu prądu wynoszącym: " + naterzenieAmpery + "A wynosi: " + wynikKiloWaty + "KW";
+			}
+			else {
+				document.getElementById("pradNaMocWynik").innerHTML= "Wprowadziłeś błędne dane !!!";
+			}
    	}
    	
    	function mocNaPrad400() {
@@ -66,32 +71,48 @@ function energiaMinuty() {
     		var moc = liczbaPole_11 = liczbaPole_11.replace(',','.'); 
     		var cosFi = 0.8
     		var pierwiastekZtrzech = 0.00173205
-    		var napiecieVolt = 400
-    		var podzielnikMocy = (pierwiastekZtrzech * napiecieVolt) * cosFi;
-    		var pradWynik = moc / podzielnikMocy;
-    		
-    		document.getElementById("mocNaPradWynik").innerHTML="Moc urządzenia: " + moc + " KW  Napięcie sieci: " + napiecieVolt + " Volt" + " Natężenie wynosi: " + pradWynik + " A";
+			var napiecieVolt = 400
+			
+			if (!isNaN(liczbaPole_11)) {
+				var podzielnikMocy = (pierwiastekZtrzech * napiecieVolt) * cosFi;
+    			var pradWynik = moc / podzielnikMocy;
+    			document.getElementById("mocNaPradWynik").innerHTML="Moc urządzenia: " + moc + " KW  Napięcie sieci: " + napiecieVolt + " Volt" + " Natężenie wynosi: " + pradWynik + " A";
+			}
+			else {
+				document.getElementById("mocNaPradWynik").innerHTML= "Wprowadziłeś błędne dane !!!";
+			}
    	}
    	
    	function mocNaPrad230() {
    		var liczbaPole_12 = document.getElementById("pole_12").value;
     		var mocPradJednofazowy = liczbaPole_12.replace(',','.');
     		var cosFi = 0.8;
-    		var napiecieVolt = 230;
-    		
-    		var pradWynik = mocPradJednofazowy / napiecieVolt;
-    		
-    		document.getElementById("mocNaPrad230Wynik").innerHTML="Przy napięciu " + napiecieVolt + " V" + " i mocy urządzenia wynoszącej: " + mocPradJednofazowy + " W" + " natężenie prądu wynosi: " + pradWynik + " Amperów"; 
-   	}
-   	
+			var napiecieVolt = 230;
+			var max_znakow = 2;
+
+			if (!isNaN(liczbaPole_12)) {
+				var pradWynik = mocPradJednofazowy / napiecieVolt;
+				document.getElementById("mocNaPrad230Wynik").innerHTML="Przy napięciu " + napiecieVolt + " V" + " i mocy urządzenia wynoszącej: " + mocPradJednofazowy + " W" + " natężenie prądu wynosi: " + pradWynik + " Amperów";
+			}
+			else {
+				document.getElementById("mocNaPrad230Wynik").innerHTML= "Wprowadziłeś błędne dane !!!"
+			}
+	   }
+	
+	//function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
+	   
    	function obliczKondensator() {
    		var liczbaPole_13 = document.getElementById("pole_13").value;
    		var moc = liczbaPole_13.replace(',','.');
    		var liczbaPole_14 = document.getElementById("pole_14").value;
    		var wspolczunnik = liczbaPole_14.replace(',','.');
-    		var cosFi = 0.8;
-    		
-    		var pojemnosc = (wspolczunnik * moc) * cosFi;
-    
-    		document.getElementById("obliczKondensatorWynik").innerHTML="Pojemność kondensatora wynosi: " + pojemnosc + " uF";
+    	var cosFi = 0.8;
+			
+			if (!isNaN(liczbaPole_13) && !isNaN(liczbaPole_14)) {
+				var pojemnosc = (wspolczunnik * moc) * cosFi;
+				document.getElementById("obliczKondensatorWynik").innerHTML="Pojemność kondensatora wynosi: " + pojemnosc + " uF";
+			}
+			else {
+				document.getElementById("obliczKondensatorWynik").innerHTML="Wprowadziłeś błędne dane !!!";
+			}
    	}	
