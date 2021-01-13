@@ -90,7 +90,7 @@ function energiaMinuty() {
 			var napiecieVolt = 230;
 			var max_znakow = 2;
 
-			if (!isNaN(liczbaPole_12)) {
+			if (!isNaN(mocPradJednofazowy)) {
 				var pradWynik = mocPradJednofazowy / napiecieVolt;
 				document.getElementById("mocNaPrad230Wynik").innerHTML="Przy napięciu " + napiecieVolt + " V" + " i mocy urządzenia wynoszącej: " + mocPradJednofazowy + " W" + " natężenie prądu wynosi: " + pradWynik + " Amperów";
 			}
@@ -108,7 +108,7 @@ function energiaMinuty() {
    		var wspolczunnik = liczbaPole_14.replace(',','.');
     	var cosFi = 0.8;
 			
-			if (!isNaN(liczbaPole_13) && !isNaN(liczbaPole_14)) {
+			if (!isNaN(moc) && !isNaN(wspolczunnik)) {
 				var pojemnosc = (wspolczunnik * moc) * cosFi;
 				document.getElementById("obliczKondensatorWynik").innerHTML="Pojemność kondensatora wynosi: " + pojemnosc + " uF";
 			}
