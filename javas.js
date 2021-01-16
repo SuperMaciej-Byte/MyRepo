@@ -1,4 +1,4 @@
-function energiaMinuty() {
+	function energiaMinuty() {
    		var liczbaPole_1 = document.getElementById("pole_1").value;
    		var liczbaPole_2 = document.getElementById("pole_2").value;
    		var liczbaPole_3 = document.getElementById("pole_3").value;
@@ -6,11 +6,15 @@ function energiaMinuty() {
    		var mocUrzadzenia_w_Watach = liczbaPole_1.replace(',','.');
    		var czasPracyUrzadzeniaMinuty = liczbaPole_2.replace(',','.');
    		var kosztKWh = liczbaPole_3.replace(',','.');
-   		
-   		var zuzycieEnergiiUrzadzeniaWczasie_w_KWh = ((mocUrzadzenia_w_Watach * czasPracyUrzadzeniaMinuty) / 60) / 1000;			
-			var wynikKosztowMinuty = zuzycieEnergiiUrzadzeniaWczasie_w_KWh * kosztKWh;
-   		   		
-   		document.getElementById("wynikMinuty").innerHTML="Koszty pracy urządzenia o mocy " + mocUrzadzenia_w_Watach + "W" + " " + "które pracuje w ciągu " + czasPracyUrzadzeniaMinuty + " " + "Minut" + " " + "wynosi: " + wynikKosztowMinuty + " " + "PLN";
+		   
+		   if (!isNaN(mocUrzadzenia_w_Watach) && !isNaN(czasPracyUrzadzeniaMinuty) && !isNaN(kosztKWh)) {
+				var zuzycieEnergiiUrzadzeniaWczasie_w_KWh = ((mocUrzadzenia_w_Watach * czasPracyUrzadzeniaMinuty) / 60) / 1000;			
+				var wynikKosztowMinuty = zuzycieEnergiiUrzadzeniaWczasie_w_KWh * kosztKWh;		  
+				   document.getElementById("wynikMinuty").innerHTML="Koszty pracy urządzenia o mocy " + mocUrzadzenia_w_Watach + "W" + " " + "które pracuje w ciągu " + czasPracyUrzadzeniaMinuty + " " + "Minut" + " " + "wynosi: " + wynikKosztowMinuty + " " + "PLN";
+			}
+			else {
+				document.getElementById("wynikMinuty").innerHTML="Wprowadziłeś błędne dane !!!";
+			}
    	//	window.alert("Koszt pracy urządzenia o mocy= " + mocUrzadzenia_w_Watach + " Wat " + "W czasie " + czasPracyUrzadzeniaMinuty + "minuty" + "wynosi" + wynikKosztow + "Kurwa Mać");
    		
    		/*var obliczonePola = Number(pole_1.value) + Number(pole_2.value) + Number(pole_3.value);
@@ -26,13 +30,17 @@ function energiaMinuty() {
    		var mocUrzadzenia_w_Watach_Godziny = liczbaPole_4.replace(',','.');
    		var czasPracyUrzadzeniaGodziny = liczbaPole_5.replace(',','.');
    		var kosztKWh_Godziny = liczbaPole_6.replace(',','.');
-   		
-    		var zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Godziny = (mocUrzadzenia_w_Watach_Godziny * czasPracyUrzadzeniaGodziny) / 1000;
+		   
+		   if (!isNaN(mocUrzadzenia_w_Watach_Godziny) && !isNaN(czasPracyUrzadzeniaGodziny) && !isNaN(kosztKWh_Godziny)) {
+			var zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Godziny = (mocUrzadzenia_w_Watach_Godziny * czasPracyUrzadzeniaGodziny) / 1000;
     		var wynikKosztow_Godziny = zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Godziny * kosztKWh_Godziny;
-    		
-    			document.getElementById("wynikGodziny").innerHTML="Koszty pracy urządzenia o mocy " + mocUrzadzenia_w_Watach_Godziny + " Wat" + " " + "które pracuje w ciągu " + czasPracyUrzadzeniaGodziny + " " + "Godzin" + " " + "wynosi: " + wynikKosztow_Godziny + " " + "PLN";  
+    			document.getElementById("wynikGodziny").innerHTML="Koszty pracy urządzenia o mocy " + mocUrzadzenia_w_Watach_Godziny + " Wat" + " " + "które pracuje w ciągu " + czasPracyUrzadzeniaGodziny + " " + "Godzin" + " " + "wynosi: " + wynikKosztow_Godziny + " " + "PLN";
+		   }
+		   else {
+			   document.getElementById("wynikGodziny").innerHTML="Wprowadziłeś błędne dane !!!";
+		   }
+    		  
    	//	window.alert("Koszt pracy urządzenia o mocy= " + mocUrzadzenia_w_Watach + " Wat " + "W czasie " + czasPracyUrzadzeniaMinuty + "minuty" + "wynosi" + wynikKosztow + "Kurwa Mać");
-    
    	}
    	
    	function energiaDni() {
@@ -42,12 +50,16 @@ function energiaMinuty() {
    		
    		var moc_Urzadzenia_w_Watach_Dni = liczbaPole_7.replace(',','.');
    		var czas_Pracy_Urzadzenia_Dni = liczbaPole_8.replace(',','.');
-   		var kosztKWh_Dni = liczbaPole_9.replace(',','.');
-   		
-   		var zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni = ((moc_Urzadzenia_w_Watach_Dni * czas_Pracy_Urzadzenia_Dni) * 24) / 1000;  
-    		var wynikKosztow_Dni = zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni * kosztKWh_Dni;
-    		
-    document.getElementById("wynikDni").innerHTML="Koszt pracy urządzenia o mocy " + moc_Urzadzenia_w_Watach_Dni + " Wat" + " w czasie " + czas_Pracy_Urzadzenia_Dni + " dni" + " wynosi: " + wynikKosztow_Dni + " PLN"
+		var kosztKWh_Dni = liczbaPole_9.replace(',','.');
+		
+		if (!isNaN(moc_Urzadzenia_w_Watach_Dni) && !isNaN(czas_Pracy_Urzadzenia_Dni) && !isNaN(kosztKWh_Dni)) {
+			var zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni = ((moc_Urzadzenia_w_Watach_Dni * czas_Pracy_Urzadzenia_Dni) * 24) / 1000;  
+    		var wynikKosztow_Dni = zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni * kosztKWh_Dni;	
+    		document.getElementById("wynikDni").innerHTML="Koszt pracy urządzenia o mocy " + moc_Urzadzenia_w_Watach_Dni + " Wat" + " w czasie " + czas_Pracy_Urzadzenia_Dni + " dni" + " wynosi: " + wynikKosztow_Dni + " PLN";
+		}
+		else {
+			document.getElementById("wynikDni").innerHTML="Wprowadziłeś błędne dane !!!";
+		}	
    	}
    	
    	function pradNaMoc400() {
@@ -97,7 +109,7 @@ function energiaMinuty() {
 			else {
 				document.getElementById("mocNaPrad230Wynik").innerHTML= "Wprowadziłeś błędne dane !!!"
 			}
-	   }
+	}
 	
 	//function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 	   
@@ -116,3 +128,9 @@ function energiaMinuty() {
 				document.getElementById("obliczKondensatorWynik").innerHTML="Wprowadziłeś błędne dane !!!";
 			}
    	}	
+
+	   // Poniżej Jest Tooltip Kurwa
+
+	   $(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();   
+	  });
