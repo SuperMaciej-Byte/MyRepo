@@ -54,7 +54,9 @@
 		
 		if (!isNaN(moc_Urzadzenia_w_Watach_Dni) && !isNaN(czas_Pracy_Urzadzenia_Dni) && !isNaN(kosztKWh_Dni)) {
 			var zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni = ((moc_Urzadzenia_w_Watach_Dni * czas_Pracy_Urzadzenia_Dni) * 24) / 1000;  
-    		var wynikKosztow_Dni = zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni * kosztKWh_Dni;	
+			var wynikKosztow_Dni = zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni * kosztKWh_Dni;
+
+			document.getElementById("zuzycieKWh_Dni").innerHTML="Urządzenie zużyło: " + zuzycie_Energii_Urzadzenia_W_czasie_w_KWh_Dni + "KWh";
     		document.getElementById("wynikDni").innerHTML="Koszt pracy urządzenia o mocy " + moc_Urzadzenia_w_Watach_Dni + " Wat" + " w czasie " + czas_Pracy_Urzadzenia_Dni + " dni" + " wynosi: " + wynikKosztow_Dni + " PLN";
 		}
 		else {
