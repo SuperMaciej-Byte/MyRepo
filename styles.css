@@ -27,13 +27,3 @@ label { color: ghostwhite; }
 	padding: 15px;
 	font-size: 20px;
 }
-  
-  /* Tooltip on top */
-.test + .tooltip.top > .tooltip-arrow {
-	border-top: 5px solid rgb(221, 233, 221);
-}
-
-/* Tooltip on bottom */
-.test + .tooltip.bottom > .tooltip-arrow {
-	border-bottom: 5px solid blue;
-  }
