@@ -66,7 +66,8 @@
    	
    	function pradNaMoc400() {
    		var liczbaPole_10 = document.getElementById("pole_10").value;
-    		var naterzenieAmpery = liczbaPole_10.replace(',','.');
+//		   var naterzenieAmpery = liczbaPole_10.replace(',','.');
+    		var naterzenieAmpery = liczbaPole_10 = liczbaPole_10.replace(',','.');
     		var cosFi = 0.8;
     		var pierwiastekZtrzech = 0.00173205;
     		var napiecieVolt = 400;
